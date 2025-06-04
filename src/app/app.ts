@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component,signal, effect, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProfilePic } from './profile-pic/profile-pic';
+import { HoverHighlight } from './hover-highlight';
 
 
 interface User {
@@ -13,7 +14,7 @@ interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, ProfilePic],
+  imports: [CommonModule, ProfilePic, HoverHighlight],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -70,7 +71,7 @@ export class App {
   }
 
   fetchImage (event: Event) {
-    console.log("changing");
+    console.log("");
     if (event.target) {
       const inputElement = event.target as HTMLInputElement;
       this.imageLink.set(inputElement.value);

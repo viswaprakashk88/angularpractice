@@ -19,10 +19,19 @@
         <td>{{item.username}}</td>
       </tr>
     </table>
+    
     <br/><br/><br/>
     <input type = "text" (change) = "fetchImage($event)" placeholder = "Enter URL"/>
-    <img [src]="imageLink()" width="300px" height="300px" />
-    <!-- <app-profile-pic [imgUrl] = "imageLink()"></app-profile-pic> -->
+    <!-- <img [src]="imageLink()" width="300px" height="300px" /> -->
+    <app-profile-pic [imgUrl]="imageLink()" [imgWidth]="'300px'" [imgHeight]="'300px'">
+      <!-- <b>this is from ng-content</b> -->
+    </app-profile-pic>
+    <br/><br/><br/><br/>
+    <b appHoverHighlight>
+      Hover on me. The text background will be chagned to yellow!
+    </b>
+
+    <br/><br/><br/><br/>
 </div>
 
 
