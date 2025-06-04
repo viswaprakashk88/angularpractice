@@ -19,4 +19,12 @@
         <td>{{item.username}}</td>
       </tr>
     </table>
+    <br/><br/><br/>
+    <input type = "text" (change) = "fetchImage($event)" placeholder = "Enter URL"/>
+    <img [src]="imageLink()" width="300px" height="300px" />
+    <!-- <app-profile-pic [imgUrl] = "imageLink()"></app-profile-pic> -->
 </div>
+
+
+
+URL for Data: https://jsonplaceholder.typicode.com/users

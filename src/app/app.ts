@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component,signal, effect, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ProfilePic } from './profile-pic/profile-pic';
 
 
 interface User {
@@ -12,7 +13,7 @@ interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, ProfilePic],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -24,6 +25,8 @@ export class App {
   firstComputed = computed(() => this.firstSignal()*10);
 
   response = signal<User[]>([]);
+
+  imageLink = signal("");
 
   secondComputed = computed( () => {
     if (this.secondSignal() < 18) {
@@ -63,6 +66,14 @@ export class App {
       console.log(this.response());
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  fetchImage (event: Event) {
+    console.log("changing");
+    if (event.target) {
+      const inputElement = event.target as HTMLInputElement;
+      this.imageLink.set(inputElement.value);
     }
   }
 
