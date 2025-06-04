@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component,signal, effect, computed } from '@angular/core';
+import { Component,signal, effect, computed, ViewChild, ElementRef, Renderer2, AfterViewInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProfilePic } from './profile-pic/profile-pic';
 import { HoverHighlight } from './hover-highlight';
+import { Theme } from './theme';
+
 
 
 interface User {
@@ -14,21 +16,35 @@ interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, ProfilePic, HoverHighlight],
+  imports: [CommonModule, HoverHighlight],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements AfterViewInit {
   protected title = 'angular';
 
+  themeService = inject(Theme);
+  themeColor = this.themeService.theme;
+
+  toggle() {
+    this.themeService.toggleTheme();
+  }
+
+
+  //DOM API selector
+  @ViewChild('myDiv') divRef!: ElementRef;
+
+  //signals example
   firstSignal = signal(0);
   secondSignal = signal(10);
   firstComputed = computed(() => this.firstSignal()*10);
 
+  //fetch data from API
   response = signal<User[]>([]);
 
   imageLink = signal("");
 
+  //computed
   secondComputed = computed( () => {
     if (this.secondSignal() < 18) {
       return "secondSignal is less than 18: " + this.secondSignal();
@@ -37,6 +53,8 @@ export class App {
       return "secondSignal is major";
     }
   });
+
+  //button event listeners
   handleFirstClick = () => {
     this.firstSignal.set(this.firstSignal()+1);
   }
@@ -45,8 +63,8 @@ export class App {
     this.secondSignal.update(prev => prev+1);
   }
 
-  
-  constructor() {
+  //effects should be inside this
+  constructor(private renderer2: Renderer2) {
     effect( (onCleanup) => {
       console.log("First Signal is changed to " + this.firstSignal());
 
@@ -59,6 +77,18 @@ export class App {
       console.log("Second Signal is changed to " + this.secondSignal());
     });
   }
+
+  //ngAfterViewInit
+  ngAfterViewInit() {
+    // console.log("ngAfterViewInit is called");
+    // console.log(this.divRef.nativeElement);
+    setTimeout(() => {
+      this.renderer2.setStyle(this.divRef.nativeElement, 'color', 'red');
+      this.renderer2.setStyle(this.divRef.nativeElement, 'font-size', '35px')
+    }, 3000);
+  }
+
+  //async function
   async fetchUserData () {
     try{
       const res = await fetch("https://jsonplaceholder.typicode.com/users");

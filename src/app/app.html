@@ -1,39 +1,44 @@
-<div class="content">
-  
-    <div>My First Angular App</div>    
+<div class="content" [ngStyle]="{'background-color': themeColor(),'color': themeColor() === 'white' ? 'black' : 'white'}">
+  <button (click)="toggle()">Change Theme</button>
 
-    <b>First Signal: {{ firstSignal() }}</b><br />
-    <b>Second Signal: {{ secondSignal() }}</b><br />
-    <b>First Computed Variable: {{ firstComputed() }}</b><br />
-    <b>{{ secondComputed() }}</b><br />
+  <div>My First Angular App {{ themeColor() }}</div>    
 
-    <button (click)="handleFirstClick()">Increase First</button>
-    <button (click)="handleSecondClick()">Increase Second</button>
-    <br/>
-    <button (click)="fetchUserData()">Fetch User data</button>
-    <table style = "border:1px;">
-      <tr *ngFor="let item of response()">
-        <td>{{item.id}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.email}}</td>
-        <td>{{item.username}}</td>
-      </tr>
-    </table>
-    
-    <br/><br/><br/>
-    <input type = "text" (change) = "fetchImage($event)" placeholder = "Enter URL"/>
-    <!-- <img [src]="imageLink()" width="300px" height="300px" /> -->
-    <app-profile-pic [imgUrl]="imageLink()" [imgWidth]="'300px'" [imgHeight]="'300px'">
-      <!-- <b>this is from ng-content</b> -->
-    </app-profile-pic>
-    <br/><br/><br/><br/>
-    <b appHoverHighlight>
-      Hover on me. The text background will be chagned to yellow!
-    </b>
+  <b>First Signal: {{ firstSignal() }}</b><br />
+  <b>Second Signal: {{ secondSignal() }}</b><br />
+  <b>First Computed Variable: {{ firstComputed() }}</b><br />
+  <b>{{ secondComputed() }}</b><br />
 
-    <br/><br/><br/><br/>
+  <button (click)="handleFirstClick()">Increase First</button>
+  <button (click)="handleSecondClick()">Increase Second</button>
+  <br />
+  <button (click)="fetchUserData()">Fetch User data</button>
+  <table style="border:1px;">
+    <tr *ngFor="let item of response()">
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.username }}</td>
+    </tr>
+  </table>
+
+  <br /><br /><br />
+  <input type="text" (change)="fetchImage($event)" placeholder="Enter URL" />
+  <!-- <img [src]="imageLink()" width="300px" height="300px" /> -->
+  <!-- <app-profile-pic [imgUrl]="imageLink()" [imgWidth]="'300px'" [imgHeight]="'300px'"> -->
+    <!-- <b>this is from ng-content</b> -->
+  <!-- </app-profile-pic> -->
+  <br /><br /><br /><br />
+  <b style="font-size: 20px;" appHoverHighlight>
+    Example for HostBinding and HostListener: Hover on me. The text background will be changed to yellow!
+  </b>
+
+  <br /><br /><br /><br />
+  <div #myDiv>
+    Hello, this will have red color and 35px size after 3 seconds!
+  </div>
+  <br /><br /><br /><br />
 </div>
 
-
-
-URL for Data: https://jsonplaceholder.typicode.com/users
+<b style="font-size: 20px;">
+  URL for Data: https://jsonplaceholder.typicode.com/users
+</b>
