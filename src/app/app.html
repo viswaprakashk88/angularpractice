@@ -1,12 +1,14 @@
-<div class="content" [ngStyle]="{'background-color': themeColor(),'color': themeColor() === 'white' ? 'black' : 'white'}">
+<div class="content" [ngStyle] = "{'font-size': '19px','background-color': themeColor(),'text-align': 'center','color': themeColor() === 'white' ? 'black' : 'white'}">
   <button (click)="toggle()">Change Theme</button>
 
+  <br/>
   <div>My First Angular App {{ themeColor() }}</div>    
 
+  <br/><br/>
   <b>First Signal: {{ firstSignal() }}</b><br />
-  <b>Second Signal: {{ secondSignal() }}</b><br />
+  <b>Second Signal: {{ secondSignal() }}</b><br /><br/>
   <b>First Computed Variable: {{ firstComputed() }}</b><br />
-  <b>{{ secondComputed() }}</b><br />
+  <b>{{ secondComputed() }}</b><br /><br/>
 
   <button (click)="handleFirstClick()">Increase First</button>
   <button (click)="handleSecondClick()">Increase Second</button>
@@ -23,7 +25,8 @@
 
   <br /><br /><br />
   <input type="text" (change)="fetchImage($event)" placeholder="Enter URL" />
-  <!-- <img [src]="imageLink()" width="300px" height="300px" /> -->
+  <br/>
+  <img [src]="imageLink()" width="300px" height="300px" />
   <!-- <app-profile-pic [imgUrl]="imageLink()" [imgWidth]="'300px'" [imgHeight]="'300px'"> -->
     <!-- <b>this is from ng-content</b> -->
   <!-- </app-profile-pic> -->
@@ -37,8 +40,24 @@
     Hello, this will have red color and 35px size after 3 seconds!
   </div>
   <br /><br /><br /><br />
+
+  <b style="font-size: 20px;">
+    URL for Data: https://jsonplaceholder.typicode.com/users
+  </b>
+  <br/><br/>
+
+  Using ngModel: <input type = "text" [(ngModel)] = "username" />{{username}}
+  <br/><br/><br/>
+
+  <h1>Pipes are as follows</h1>
+  <h4>45300 in INR format: {{45300 | currency: 'INR'}}</h4>
+  <h4>"04-06-2025" in date format: {{"04-06-2025" | date}}</h4>
+  <h4>"04-06-2025" including Day: {{"04-06-2025" | date: 'fullDate'}}</h4>
+  <h4>"Prakash" in Uppercase: {{"Prakash" | uppercase}}</h4>
+  <h4>"PrAkASH" in lowercase: {{"PrAkASH" | lowercase}}</h4>
+  <h4>"ViSWa PrAkASH" in titlecase: {{"ViSWa PrAkASH" | titlecase}}</h4>
+  <h4>"Prakash is a developer".slice(0,16): {{"Prakash is a developer" | slice:0:16 }}</h4>
+
 </div>
 
-<b style="font-size: 20px;">
-  URL for Data: https://jsonplaceholder.typicode.com/users
-</b>
+

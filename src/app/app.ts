@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ProfilePic } from './profile-pic/profile-pic';
 import { HoverHighlight } from './hover-highlight';
 import { Theme } from './theme';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,12 +17,14 @@ interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, HoverHighlight],
+  imports: [CommonModule, HoverHighlight, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
   protected title = 'angular';
+
+  username = '';
 
   themeService = inject(Theme);
   themeColor = this.themeService.theme;
