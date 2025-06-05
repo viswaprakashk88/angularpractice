@@ -6,10 +6,17 @@
   <div>Angular App's Theme is:  <b>{{ themeColor() | titlecase}}</b></div>    
 
   <br/><br/>
+  <!-- <nav>
+    <a routerLink="/home">Home</a> |
+    <a routerLink="/contactus">Contact Us</a>
+  </nav>
+
+  <router-outlet></router-outlet> -->
+  <br/><br/>
   <b>First Signal: {{ firstSignal() }}</b><br />
   <b>Second Signal: {{ secondSignal() }}</b><br /><br/>
   <b>First Computed Variable: {{ firstComputed() }}</b><br />
-  <b>{{ secondComputed() }}</b><br /><br/>
+  <b>Using secondComputed: {{ secondComputed() }}</b><br /><br/>
 
   <button (click)="handleFirstClick()">Increase First</button>
   <button (click)="handleSecondClick()">Increase Second</button>

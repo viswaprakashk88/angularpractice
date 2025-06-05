@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component,signal, effect, computed, ViewChild, ElementRef, Renderer2, AfterViewInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { ProfilePic } from './profile-pic/profile-pic';
 import { HoverHighlight } from './hover-highlight';
 import { Theme } from './theme';
@@ -45,6 +45,10 @@ export class App implements AfterViewInit {
   //fetch data from API
   response = signal<User[]>([]);
 
+  //Getting current route
+  currentRoute = inject(ActivatedRoute);
+  
+
   imageLink = signal("");
 
   //computed
@@ -68,6 +72,9 @@ export class App implements AfterViewInit {
 
   //effects should be inside this
   constructor(private renderer2: Renderer2) {
+    if (this.currentRoute) {
+      console.log(this.currentRoute);
+    }
     effect( (onCleanup) => {
       console.log("First Signal is changed to " + this.firstSignal());
 
