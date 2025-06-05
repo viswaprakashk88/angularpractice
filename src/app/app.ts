@@ -35,7 +35,7 @@ export class App implements AfterViewInit {
 
 
   //DOM API selector
-  @ViewChild('myDiv') divRef!: ElementRef;
+  @ViewChild('myDiv') divisionRef!: ElementRef;
 
   //signals example
   firstSignal = signal(0);
@@ -86,8 +86,8 @@ export class App implements AfterViewInit {
     // console.log("ngAfterViewInit is called");
     // console.log(this.divRef.nativeElement);
     setTimeout(() => {
-      this.renderer2.setStyle(this.divRef.nativeElement, 'color', 'red');
-      this.renderer2.setStyle(this.divRef.nativeElement, 'font-size', '35px')
+      this.renderer2.setStyle(this.divisionRef.nativeElement, 'color', 'red');
+      this.renderer2.setStyle(this.divisionRef.nativeElement, 'font-size', '35px')
     }, 3000);
   }
 
@@ -100,11 +100,10 @@ export class App implements AfterViewInit {
       console.log(this.response());
     } catch (error) {
       console.log(error);
-    }
+    } 
   }
 
   fetchImage (event: Event) {
-    console.log("");
     if (event.target) {
       const inputElement = event.target as HTMLInputElement;
       this.imageLink.set(inputElement.value);

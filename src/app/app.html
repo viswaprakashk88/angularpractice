@@ -2,7 +2,8 @@
   <button (click)="toggle()">Change Theme</button>
 
   <br/>
-  <div>My First Angular App {{ themeColor() }}</div>    
+  <br/>
+  <div>Angular App's Theme is:  <b>{{ themeColor() | titlecase}}</b></div>    
 
   <br/><br/>
   <b>First Signal: {{ firstSignal() }}</b><br />
@@ -13,6 +14,7 @@
   <button (click)="handleFirstClick()">Increase First</button>
   <button (click)="handleSecondClick()">Increase Second</button>
   <br />
+  <br/>
   <button (click)="fetchUserData()">Fetch User data</button>
   <table style="border:1px;">
     <tr *ngFor="let item of response()">
@@ -58,6 +60,15 @@
   <h4>"ViSWa PrAkASH" in titlecase: {{"ViSWa PrAkASH" | titlecase}}</h4>
   <h4>"Prakash is a developer".slice(0,16): {{"Prakash is a developer" | slice:0:16 }}</h4>
 
+  @let age = 10;
+  @if (age >= 18) {
+    <h3>using &#64;if: You are a major</h3>
+  }
+  @else {
+    <h3>using &#64;else: You are a minor</h3>
+  }
+
+  <h2>Testing &nbsp;&nbsp;whether &nbsp;&nbsp;every &nbsp;&nbsp;word &nbsp;&nbsp;is &nbsp;&nbsp;having &nbsp;&nbsp;3 &nbsp;&nbsp;whites &nbsp;&nbsp;spaces &nbsp;&nbsp;between &nbsp;&nbsp;each &nbsp;&nbsp;other!</h2>
 </div>
 
 
