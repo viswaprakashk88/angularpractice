@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component,signal, effect, computed, ViewChild, ElementRef, Renderer2, AfterViewInit, inject } from '@angular/core';
+import { Component, signal, effect, computed, ViewChild, ElementRef, Renderer2, AfterViewInit, inject } from '@angular/core';
 import { RouterModule, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { ProfilePic } from './profile-pic/profile-pic';
 import { HoverHighlight } from './hover-highlight';
@@ -57,7 +57,7 @@ export class App implements AfterViewInit {
       return "secondSignal is less than 18: " + this.secondSignal();
     }
     else{
-      return "secondSignal is major";
+      return "secondSignal is greater than 18";
     }
   });
 
