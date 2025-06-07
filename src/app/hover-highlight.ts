@@ -17,5 +17,4 @@ export class HoverHighlight {
   @HostListener('mouseleave') onMouseLeave() {
     this.backgroundColor = '';
   }
-
 }

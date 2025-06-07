@@ -24,6 +24,8 @@ interface User {
 export class App implements AfterViewInit {
   protected title = 'angular';
 
+
+
   username = '';
 
   themeService = inject(Theme);

@@ -1,0 +1,7 @@
+div{
+    transition: background-color 2s;
+}
+
+a:visited{
+    color: blue;
+}
