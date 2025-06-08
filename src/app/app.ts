@@ -18,7 +18,7 @@ interface User {
   selector: 'app-root',
   imports: [CommonModule, HoverHighlight, FormsModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App implements AfterViewInit {
   protected title = 'angular';
