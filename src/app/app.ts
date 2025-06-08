@@ -72,10 +72,10 @@ export class App implements AfterViewInit {
   //effects should be inside this
   constructor(private renderer2: Renderer2) {
     if (this.currentRoute) {
-      console.log(this.currentRoute);
+      // console.log(this.currentRoute);
     }
     effect( (onCleanup) => {
-      console.log("First Signal is changed to " + this.firstSignal());
+      // console.log("First Signal is changed to " + this.firstSignal());
 
       onCleanup(() => {
         //if we have any socket.io functionalities in the applications, we can disconnect them from the backend using this onCleanup function
@@ -83,7 +83,7 @@ export class App implements AfterViewInit {
     });
 
     effect ( () => {
-      console.log("Second Signal is changed to " + this.secondSignal());
+      // console.log("Second Signal is changed to " + this.secondSignal());
     });
   }
 
@@ -103,9 +103,9 @@ export class App implements AfterViewInit {
       const res = await fetch("https://jsonplaceholder.typicode.com/users");
       const data =await res.json();
       this.response.set(data);
-      console.log(this.response());
+      // console.log(this.response());
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } 
   }
 
