@@ -59,13 +59,13 @@
   <br/><br/><br/>
 
   <h1>Pipes are as follows</h1>
-  <h4>45300 in INR format: {{45300 | currency: 'INR'}}</h4>
-  <h4>"04-06-2025" in date format: {{"04-06-2025" | date}}</h4>
-  <h4>"04-06-2025" including Day: {{"04-06-2025" | date: 'fullDate'}}</h4>
-  <h4>"Prakash" in Uppercase: {{"Prakash" | uppercase}}</h4>
-  <h4>"PrAkASH" in lowercase: {{"PrAkASH" | lowercase}}</h4>
-  <h4>"ViSWa PrAkASH" in titlecase: {{"ViSWa PrAkASH" | titlecase}}</h4>
-  <h4>"Prakash is a developer".slice(0,16): {{"Prakash is a developer" | slice:0:16 }}</h4>
+  <h4>45300 in INR format: {{ 45300 | currency: 'INR' }}</h4>
+  <h4>"04-06-2025" in date format: {{ "04-06-2025" | date }}</h4>
+  <h4>"04-06-2025" including Day: {{ "04-06-2025" | date: 'fullDate' }}</h4>
+  <h4>"Prakash" in Uppercase: {{ "Prakash" | uppercase }}</h4>
+  <h4>"PrAkASH" in lowercase: {{ "PrAkASH" | lowercase }}</h4>
+  <h4>"ViSWa PrAkASH" in titlecase: {{ "ViSWa PrAkASH" | titlecase }}</h4>
+  <h4>"Prakash is a developer".slice(0,16): {{ "Prakash is a developer" | slice:0:16 }}</h4>
 
   @let age = 10;
   @if (age >= 18) {
