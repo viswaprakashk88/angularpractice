@@ -20,6 +20,7 @@ interface User {
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
+
 export class App implements AfterViewInit {
   protected title = 'angular';
 
