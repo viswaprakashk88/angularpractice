@@ -7,7 +7,6 @@ import { Theme } from './theme';
 import { FormsModule } from '@angular/forms';
 
 
-
 interface User {
   id: number,
   name: string,
@@ -23,9 +22,7 @@ interface User {
 })
 export class App implements AfterViewInit {
   protected title = 'angular';
-
-
-
+  
   username = '';
 
   themeService = inject(Theme);
@@ -118,6 +115,4 @@ export class App implements AfterViewInit {
       this.imageLink.set(inputElement.value);
     }
   }
-
-
 }
