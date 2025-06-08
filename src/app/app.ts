@@ -89,8 +89,6 @@ export class App implements AfterViewInit {
 
   //ngAfterViewInit
   ngAfterViewInit() {
-    // console.log("ngAfterViewInit is called");
-    // console.log(this.divRef.nativeElement);
     setTimeout(() => {
       this.renderer2.setStyle(this.divisionRef.nativeElement, 'color', 'red');
       this.renderer2.setStyle(this.divisionRef.nativeElement, 'font-size', '35px')
